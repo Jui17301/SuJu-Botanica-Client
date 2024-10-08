@@ -57,17 +57,19 @@ const ProductList = () => {
   const { handleAddToCart } = useCart();
 
   // Handle search and sorting effects
-  useEffect(() => {
-    if (data) {
-      let filtered = data.filter(
-        (item) =>
-          item.title.toLowerCase().includes(searchQuery.toLowerCase()) &&
-          item.category.toLowerCase().includes(categoryQuery.toLowerCase()) // Category filtering
-      );
-      filtered.sort((a, b) => (a[sortCriteria] > b[sortCriteria] ? 1 : -1));
-      setFilteredData(filtered);
-    }
-  }, [data, searchQuery, categoryQuery, sortCriteria]);
+  // Handle search and sorting effects
+useEffect(() => {
+  if (data) {
+    let filtered = data.filter(
+      (item) =>
+        (item.title ? item.title.toLowerCase().includes(searchQuery.toLowerCase()) : false) &&
+        (item.category ? item.category.toLowerCase().includes(categoryQuery.toLowerCase()) : false) // Category filtering
+    );
+    filtered.sort((a, b) => (a[sortCriteria] > b[sortCriteria] ? 1 : -1));
+    setFilteredData(filtered);
+  }
+}, [data, searchQuery, categoryQuery, sortCriteria]);
+
 
   // Handle form default values based on selected product
   useEffect(() => {
