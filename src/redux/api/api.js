@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000", // Adjust this to your actual base URL
+    baseUrl: "https://su-ju-botanica-server.vercel.app", // Adjust this to your actual base URL
   }),
   tagTypes: ["products", "categories", "payment", "cart", "reviews"],
   endpoints: (builder) => ({
