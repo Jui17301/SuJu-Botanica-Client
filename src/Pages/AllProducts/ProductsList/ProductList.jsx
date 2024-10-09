@@ -62,8 +62,8 @@ useEffect(() => {
   if (data) {
     let filtered = data.filter(
       (item) =>
-        (item.title ? item.title.toLowerCase().includes(searchQuery.toLowerCase()) : false) &&
-        (item.category ? item.category.toLowerCase().includes(categoryQuery.toLowerCase()) : false) // Category filtering
+        (item?.title ? item?.title.toLowerCase().includes(searchQuery.toLowerCase()) : false) &&
+        (item?.category ? item?.category.toLowerCase().includes(categoryQuery.toLowerCase()) : false) // Category filtering
     );
     filtered.sort((a, b) => (a[sortCriteria] > b[sortCriteria] ? 1 : -1));
     setFilteredData(filtered);
